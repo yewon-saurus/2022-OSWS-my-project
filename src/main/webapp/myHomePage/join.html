@@ -28,22 +28,21 @@
     </nav>
     <hr>
     <main>
-        <article>
-            <div class="join-area">
+        <div>
+            <div>
                 <h1>JOIN</h1>
                 <p>반갑습니다!</p>
             </div>
-        </article>
+        </div>
         <div>
-            <form id="signin" action="register.jsp" method="POST">
+            <form id="signin" action="join.jsp" method="POST">
                 <label>
                     <p>이메일</p>
-                    <input id="email" name="email" type="email" placeholder="이메일" autofocus>
+                    <input id="email" name="userEmail" type="email" placeholder="이메일" autofocus>
                 </label>
                 <label>
                     <p>비밀번호</p>
-                    <input id="pass1" name="pass" type="password" placeholder="비밀번호"><br>
-                    <input id="pass2" type="password" placeholder="비밀번호 확인">
+                    <input id="password" name="userPassword" type="password" placeholder="비밀번호"><br>
                 </label>
                 <div>
                     <input id="agree_terms" name="agree_terms" type="hidden">

@@ -14,7 +14,7 @@ public class UserDAO {
 			System.out.println("1");;
 			
 			// localhost:3306
-			String dbURL = "jdbc:mysql://localhost:3306/myHomePage?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false";
+			String dbURL = "jdbc:mysql://localhost:3306/myHomePage";
 			String dbID = "root";
 			String dbPW = "yewon12!";
 			Class.forName("com.mysql.jdbc.Driver");
@@ -27,10 +27,11 @@ public class UserDAO {
 	}
 	
 	public int login(String userEmail, String  userPassword) {
-		String SQL = "select password from user where email = ?";
+		String SQL = "SELECT password FROM user WHERE email = ?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, userEmail);
+			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				if (rs.getString(1).equals(userPassword)) {
 					return 1;
@@ -48,17 +49,16 @@ public class UserDAO {
 	}
 	
 	public int join(User user) {
-		String SQL = "insert into user values (?, ?, ?)";
+		String SQL = "INSERT INTO user VALUES (?,?,?)";
 		try {
 			System.out.println("3");
-			
 			pstmt = conn.prepareStatement(SQL);
+			
 			pstmt.setString(1, user.getUserEmail());
 			pstmt.setString(2, user.getUserPassword());
 			
 			return pstmt.executeUpdate();
-		}
-		catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("4");
 			e.printStackTrace();
 		}

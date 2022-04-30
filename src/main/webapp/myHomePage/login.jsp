@@ -8,11 +8,42 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>환영해요</title>
+	</head>
+	<body>
+		<%
+		UserDAO userDAO = new UserDAO();
+		String userEmail = request.getParameter("userEmail");
+		String password = request.getParameter("userPassword");
+		int result = userDAO.login(userEmail, password);
+		
+		if (result == 1) { // 로그인 성공
+			response.sendRedirect("index.jsp");
+			session.setAttribute("userEmail", userEmail);
+		}
+		else if (result == 0) { // 로그인 실패
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('Please check the *password* again.')");
+			script.println("history.back()");
+			script.println("</script>");
+		}
+		else if(result == -1){ // 가입된 아이디(email) 없음
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('Please check the *email* again.')");
+			script.println("history.back()");
+			script.println("</script>");
+		}
+		else if(result == -2){ // DB 오류
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('Please check the DB server.')");
+			script.println("history.back()");
+			script.println("</script>");
+		}
+		%>
+	</body>
 </html>
