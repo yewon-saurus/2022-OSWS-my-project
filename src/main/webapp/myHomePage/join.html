@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <title>반가워요</title>
+    </head>
+    <header>
+        <div class="logo"><a href='index.jsp'><img src="./img/pig.png"></a></div>
+        <div class="to_login_join">
+            <a href='login.html'>LOGIN</a>&nbsp;&nbsp;&nbsp;
+            <a href='join.html'>JOIN</a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href='schedule.html' class="floatLeft hoverPinkBack">SCHEDULE</a></li>
+            <li><a href='board.html' class="floatLeft hoverPinkBack">BOARD</a></li>
+            <li><a href='https://tomato-timer.com/' class="hoverPinkBack" target="_blank">🍅POMODORO🔗</a></li>
+        </ul>
+    </nav>
+    <nav>
+        <aside>
+            <div class="nav-btn">
+                <a href="#"><img src='./img/up.png' width='50'></a>
+            </div>
+        </aside>
+    </nav>
+    <hr>
+    <main>
+        <article>
+            <div class="join-area">
+                <h1>JOIN</h1>
+                <p>반갑습니다!</p>
+            </div>
+        </article>
+        <div>
+            <form id="signin" action="register.jsp" method="POST">
+                <label>
+                    <p>이메일</p>
+                    <input id="email" name="email" type="email" placeholder="이메일" autofocus>
+                </label>
+                <label>
+                    <p>비밀번호</p>
+                    <input id="pass1" name="pass" type="password" placeholder="비밀번호"><br>
+                    <input id="pass2" type="password" placeholder="비밀번호 확인">
+                </label>
+                <div>
+                    <input id="agree_terms" name="agree_terms" type="hidden">
+                    <input id="user_info_agree" name="user_info_agree" type="hidden">
+                    <input id="marketing_sms_agree" name="marketing_sms_agree" type="hidden">
+                    <input id="marketing_email_agree" name="marketing_email_agree" type="hidden">
+                </div>
+                <div>
+                	<button class="btn-shape white-font" type="submit">가입하기</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <hr>
+    <footer>
+        <div>
+            Copyright&nbsp;&copy;&nbsp;2022&nbsp;YewonKim
+        </div>
+    </footer>
+</html>

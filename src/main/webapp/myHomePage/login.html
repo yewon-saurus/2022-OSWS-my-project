@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <title>환영해요</title>
+    </head>
+    <header>
+        <div class="logo"><a href='index.jsp'><img src="./img/pig.png"></a></div>
+        <div class="to_login_join">
+            <a href='login.html'>LOGIN</a>&nbsp;&nbsp;&nbsp;
+            <a href='join.html'>JOIN</a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href='schedule.html' class="floatLeft hoverPinkBack">SCHEDULE</a></li>
+            <li><a href='board.html' class="floatLeft hoverPinkBack">BOARD</a></li>
+            <li><a href='https://tomato-timer.com/' class="hoverPinkBack" target="_blank">🍅POMODORO🔗</a></li>
+        </ul>
+    </nav>
+    <nav>
+        <aside>
+            <div class="nav-btn">
+                <a href="#"><img src='./img/up.png' width='50'></a>
+            </div>
+        </aside>
+    </nav>
+    <hr>
+    <main>
+        <div>
+            <h1>LOGIN</h1>
+            <p>환영해요.</p>
+        </div>
+        <div>
+            <form action="login.jsp" method="post">
+                <div id="signin">
+                    <label>
+                        <p>이메일</p>
+                        <input id="email" name="email" autofocus type="email" placeholder="이메일"><br>
+                    </label>
+                    <label>
+                        <p>비밀번호</p>
+                        <input id="pass" name="pass" type="password" placeholder="비밀번호" required><br>
+                    </label>
+                    <button class="btn-shape white-font" type="submit">로그인</button><br>
+                    <div class="algin-left" id="toJoin">
+                        <a href="join.html">회원가입</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <hr>
+    <footer>
+        <div>
+            Copyright&nbsp;&copy;&nbsp;2022&nbsp;YewonKim
+        </div>
+    </footer>
+</html>
