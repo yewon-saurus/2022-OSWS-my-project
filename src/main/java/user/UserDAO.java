@@ -1,30 +1,14 @@
 package user;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import util.DatabaseUtil;
+
 public class UserDAO {
-	private Connection conn;
+	private Connection conn = DatabaseUtil.getConnection();
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	
-	public UserDAO() {
-		try {
-			System.out.println("1");;
-			
-			// localhost:3306
-			String dbURL = "jdbc:mysql://localhost:3306/myhomepage?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false";
-			String dbID = "root";
-			String dbPW = "yewon12!";
-			Class.forName("com.mysql.jdbc.Driver");
-			conn = DriverManager.getConnection(dbURL, dbID, dbPW);
-		}
-		catch (Exception e) {
-			System.out.println("2");
-			e.printStackTrace();
-		}
-	}
 	
 	public int login(String userID, String  userPassword) {
 		String SQL = "SELECT password FROM user WHERE id = ?";
