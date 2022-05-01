@@ -29,7 +29,21 @@
         </aside>
     </nav>
     <hr>
-    <main>
+    <body>
+	    <%
+	    String userEmail = null;
+	    if (session.getAttribute("userEmail") != null) {
+	    	userEmail = (String) session.getAttribute("userEmail");
+	    	%>
+	    	<p><%=userID %> 님</p>
+	    	<%
+	    }
+	    else {
+	    	%>
+	    	<p>게스트 님</p>
+	    	<%
+	    }
+	    %>
         <article>
             <h1>MAIN</h1>
             <p>어서오세요.</p>
@@ -38,14 +52,14 @@
             <section>
                 <!-- 메인 배너 -->
                 <div class='whoIsYewon'> <!--소개-->
-                    <img src="./img/animal_chara_smartphone_buta.png" alt="2021. 04. 04." width="260" height="340">
+                    <img src="./img/animal_chara_smartphone_buta.png" width="260" height="340">
                     <p>김 예원</p>
                     <p>Yewon Kim</p>
                     <p>소속: <a href="https://software.cbnu.ac.kr/" target="_blank">CBNU computer science 🔗</a></p>
                 </div>
             </section>
         </article>
-    </main>
+    </body>
     <hr>
     <footer>
         <div>
