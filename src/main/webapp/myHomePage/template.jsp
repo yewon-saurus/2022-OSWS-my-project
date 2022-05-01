@@ -16,16 +16,17 @@
 			    	userID = (String) session.getAttribute("userID");
 			    	%>
 			    	<p><%=userID %> 님</p>
+			    	<a href='logout.jsp'>LOGOUT</a>&nbsp;&nbsp;&nbsp;
 			    	<%
 			    }
 			    else {
 			    	%>
 			    	<p>게스트</p>
+			    	<a href='login.html'>LOGIN</a>&nbsp;&nbsp;&nbsp;
+			    	<a href='join.html'>JOIN</a>
 			    	<%
 			    }
 			    %>
-            <a href='login.html'>LOGIN</a>&nbsp;&nbsp;&nbsp;
-            <a href='join.html'>JOIN</a>
         </div>
     </header>
     <nav>
