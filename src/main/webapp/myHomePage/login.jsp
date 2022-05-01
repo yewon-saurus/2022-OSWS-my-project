@@ -15,13 +15,13 @@
 	<body>
 		<%
 		UserDAO userDAO = new UserDAO();
-		String userEmail = request.getParameter("userEmail");
+		String ID = request.getParameter("userID");
 		String password = request.getParameter("userPassword");
-		int result = userDAO.login(userEmail, password);
+		int result = userDAO.login(ID, password);
 		
 		if (result == 1) { // 로그인 성공
 			response.sendRedirect("index.jsp");
-			session.setAttribute("userEmail", userEmail);
+			session.setAttribute("userID", ID);
 		}
 		else if (result == 0) { // 로그인 실패
 			PrintWriter script = response.getWriter();
@@ -30,10 +30,10 @@
 			script.println("history.back()");
 			script.println("</script>");
 		}
-		else if(result == -1){ // 가입된 아이디(email) 없음
+		else if(result == -1){ // 가입된 아이디 없음
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('Please check the *email* again.')");
+			script.println("alert('Please check the *ID* again.')");
 			script.println("history.back()");
 			script.println("</script>");
 		}

@@ -14,7 +14,7 @@ public class UserDAO {
 			System.out.println("1");;
 			
 			// localhost:3306
-			String dbURL = "jdbc:mysql://localhost:3306/myHomePage";
+			String dbURL = "jdbc:mysql://localhost:3306/myhomepage?characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false";
 			String dbID = "root";
 			String dbPW = "yewon12!";
 			Class.forName("com.mysql.jdbc.Driver");
@@ -26,11 +26,11 @@ public class UserDAO {
 		}
 	}
 	
-	public int login(String userEmail, String  userPassword) {
-		String SQL = "SELECT password FROM user WHERE email = ?";
+	public int login(String userID, String  userPassword) {
+		String SQL = "SELECT password FROM user WHERE id = ?";
 		try {
 			pstmt = conn.prepareStatement(SQL);
-			pstmt.setString(1, userEmail);
+			pstmt.setString(1, userID);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				if (rs.getString(1).equals(userPassword)) {
@@ -54,8 +54,9 @@ public class UserDAO {
 			System.out.println("3");
 			pstmt = conn.prepareStatement(SQL);
 			
-			pstmt.setString(1, user.getUserEmail());
-			pstmt.setString(2, user.getUserPassword());
+			pstmt.setString(1, user.getUserID());
+			pstmt.setString(2, user.getUserEmail());
+			pstmt.setString(3, user.getUserPassword());
 			
 			return pstmt.executeUpdate();
 		} catch (Exception e) {

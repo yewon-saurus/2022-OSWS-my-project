@@ -29,6 +29,7 @@
 		else { // 가입 성공
 			PrintWriter script = response.getWriter();			
 			script.println("<script>");
+			script.println("alert('You have successfully registered as a member.')");
 			script.println("location.href = 'index.jsp'");
 			script.println("</script>");
 		}
