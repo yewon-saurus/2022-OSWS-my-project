@@ -31,9 +31,22 @@
     </header>
     <nav>
         <ul>
-            <li><a href='schedule.html' class="floatLeft hoverPinkBack">SCHEDULE</a></li>
+       	    <%
+		    if (session.getAttribute("userID") != null) {
+		    	userID = (String) session.getAttribute("userID");
+		    	%>
+            <li><a href='schedule.jsp' class="floatLeft hoverPinkBack">SCHEDULE</a></li>
             <li><a href='board.html' class="floatLeft hoverPinkBack">BOARD</a></li>
             <li><a href='https://tomato-timer.com/' class="hoverPinkBack" target="_blank">🍅POMODORO🔗</a></li>
+		    	<%
+		    }
+		    else {
+		    	%>
+            <li><a href='schedule.jsp' class="floatLeft hoverPinkBack">SCHEDULE</a></li>
+            <li><a href='https://tomato-timer.com/' class="hoverPinkBack" target="_blank">🍅POMODORO🔗</a></li>
+		    	<%
+		    }
+		    %>
         </ul>
     </nav>
     <nav>

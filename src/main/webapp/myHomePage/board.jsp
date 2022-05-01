@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.io.PrintWriter" %>
+<%@ page import="board.Board" %>
+<%@ page import="board.BoardDAO" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,15 +13,43 @@
     <header>
         <div class="logo"><a href='index.jsp'><img src="./img/pig.png"></a></div>
         <div class="to_login_join">
-            <a href='login.html'>LOGIN</a>&nbsp;&nbsp;&nbsp;
-            <a href='join.html'>JOIN</a>
+        	    <%
+			    String userID = null;
+			    if (session.getAttribute("userID") != null) {
+			    	userID = (String) session.getAttribute("userID");
+			    	%>
+			    	<p><%=userID %> 님</p>
+			    	<a href='logout.jsp'>LOGOUT</a>&nbsp;&nbsp;&nbsp;
+			    	<%
+			    }
+			    else {
+			    	%>
+			    	<p>게스트</p>
+			    	<a href='login.html'>LOGIN</a>&nbsp;&nbsp;&nbsp;
+			    	<a href='join.html'>JOIN</a>
+			    	<%
+			    }
+			    %>
         </div>
     </header>
     <nav>
         <ul>
+       	    <%
+		    if (session.getAttribute("userID") != null) {
+		    	userID = (String) session.getAttribute("userID");
+		    	%>
             <li><a href='schedule.jsp' class="floatLeft hoverPinkBack">SCHEDULE</a></li>
             <li><a href='board.html' class="floatLeft hoverPinkBack">BOARD</a></li>
             <li><a href='https://tomato-timer.com/' class="hoverPinkBack" target="_blank">🍅POMODORO🔗</a></li>
+		    	<%
+		    }
+		    else {
+		    	%>
+            <li><a href='schedule.jsp' class="floatLeft hoverPinkBack">SCHEDULE</a></li>
+            <li><a href='https://tomato-timer.com/' class="hoverPinkBack" target="_blank">🍅POMODORO🔗</a></li>
+		    	<%
+		    }
+		    %>
         </ul>
     </nav>
     <nav>

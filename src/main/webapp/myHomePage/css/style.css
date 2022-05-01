@@ -48,7 +48,7 @@ ul {
     list-style-type: none;
 }
 
-.schedule-table {
+table {
     border-top: 2px solid #444;
     border-bottom: 2px solid #444;
     border-collapse: collapse;
@@ -59,7 +59,7 @@ ul {
     width: 800px;
 }
 
-.schedule-table tr, td{
+tr, td{
 	height: 60px;
     padding: 15px;
     border: 1px dashed #444;
