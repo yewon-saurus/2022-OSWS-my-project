@@ -31,9 +31,9 @@
     <hr>
     <body>
 	    <%
-	    String userEmail = null;
-	    if (session.getAttribute("userEmail") != null) {
-	    	userEmail = (String) session.getAttribute("userEmail");
+	    String userID = null;
+	    if (session.getAttribute("userID") != null) {
+	    	userID = (String) session.getAttribute("userID");
 	    	%>
 	    	<p><%=userID %> 님</p>
 	    	<%

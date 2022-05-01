@@ -6,6 +6,7 @@
 <% request.setCharacterEncoding("UTF-8"); %>
 
 <jsp:useBean id="user" class="user.User" scope="page" />
+<jsp:setProperty name="user" property="userID" />
 <jsp:setProperty name="user" property="userEmail" />
 <jsp:setProperty name="user" property="userPassword" /> 
 
@@ -22,7 +23,7 @@
 		if(result == -1){ // 이미 가입된 email
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
-			script.println("alert('This email is already subscribed.')");
+			script.println("alert('This id is already subscribed.')");
 			script.println("history.back()");
 			script.println("</script>");
 		}
