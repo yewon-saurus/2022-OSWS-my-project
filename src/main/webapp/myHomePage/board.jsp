@@ -3,6 +3,7 @@
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="board.Board" %>
 <%@ page import="board.BoardDAO" %>
+<%!String userID = null; %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,7 +15,6 @@
         <div class="logo"><a href='index.jsp'><img src="./img/pig.png"></a></div>
         <div class="to_login_join">
         	    <%
-			    String userID = null;
 			    if (session.getAttribute("userID") != null) {
 			    	userID = (String) session.getAttribute("userID");
 			    	%>
@@ -36,7 +36,6 @@
         <ul>
        	    <%
 		    if (session.getAttribute("userID") != null) {
-		    	userID = (String) session.getAttribute("userID");
 		    	%>
             <li><a href='schedule.jsp' class="floatLeft hoverPinkBack">SCHEDULE</a></li>
             <li><a href='board.html' class="floatLeft hoverPinkBack">BOARD</a></li>
@@ -65,24 +64,33 @@
             <h1>BOARD</h1>
             <p>기록해요</p>
         </article>
+<%
+int boardID = Integer.parseInt(request.getParameter("boardID"));
+BoardDAO boardDAO = new BoardDAO();
+Board board = boardDAO.getBoard(boardID);
+%>
         <article>
             <table class="boardTable">
                 <thead>
-                    <th>제목</th><th>작성시간</th>
+                    <th colspan="3">게시판 글보기</th>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>
-                            <a href="#">[공지]학습 일기 작성 시 유의사항</a>
-                        </td>
-                        <td>2021-08-16</td>
+						<td style="width: 20%;">제목</td>
+						<td><%= board.getBoardTitle() %></td>
                     </tr>
-                    <tr>
-                        <td>
-                            <a href="#">가정법 과거완료</a>
-                        </td>
-                        <td>2021-08-16</td>
-                    </tr>
+					<tr>
+						<td>작성자</td>
+						<td><%= board.getUserID() %></td>
+					</tr>
+					<tr>
+						<td>작성일자</td>
+						<td><%= board.getBoardDate() %>
+					</tr>
+					<tr>
+						<td>내용</td>
+						<td colspan="2" style="min-height: 200px; text-align: left;"><%= board.getBoardContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">","&gt;").replaceAll("\n", "<br>") %>
+					</tr>
                 </tbody>
             </table>
             <table class="boardWrite">

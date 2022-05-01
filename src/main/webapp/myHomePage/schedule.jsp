@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%!String userID = null; %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,7 +12,6 @@
         <div class="logo"><a href='index.jsp'><img src="./img/pig.png"></a></div>
         <div class="to_login_join">
         	    <%
-			    String userID = null;
 			    if (session.getAttribute("userID") != null) {
 			    	userID = (String) session.getAttribute("userID");
 			    	%>
@@ -33,10 +33,9 @@
         <ul>
        	    <%
 		    if (session.getAttribute("userID") != null) {
-		    	userID = (String) session.getAttribute("userID");
 		    	%>
             <li><a href='schedule.jsp' class="floatLeft hoverPinkBack">SCHEDULE</a></li>
-            <li><a href='board.html' class="floatLeft hoverPinkBack">BOARD</a></li>
+            <li><a href='board.jsp' class="floatLeft hoverPinkBack">BOARD</a></li>
             <li><a href='https://tomato-timer.com/' class="hoverPinkBack" target="_blank">🍅POMODORO🔗</a></li>
 		    	<%
 		    }
@@ -58,12 +57,12 @@
     </nav>
     <hr>
     <main>
-        <article>
+        <div>
             <section>
                 <h1>SCHEDULE</h1>
                 <p>저의 일정이에요.</p>
             </section>
-        </article>
+        </div>
         <article>
             <table class="schedule-table">
                 <thead>
