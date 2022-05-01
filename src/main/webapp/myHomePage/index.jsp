@@ -10,13 +10,27 @@
     <header>
         <div class="logo"><a href='index.jsp'><img src="./img/pig.png"></a></div>
         <div class="to_login_join">
+        	    <%
+			    String userID = null;
+			    if (session.getAttribute("userID") != null) {
+			    	userID = (String) session.getAttribute("userID");
+			    	%>
+			    	<p><%=userID %> 님</p>
+			    	<%
+			    }
+			    else {
+			    	%>
+			    	<p>게스트</p>
+			    	<%
+			    }
+			    %>
             <a href='login.html'>LOGIN</a>&nbsp;&nbsp;&nbsp;
             <a href='join.html'>JOIN</a>
         </div>
     </header>
     <nav>
         <ul>
-            <li><a href='schedule.html' class="floatLeft hoverPinkBack">SCHEDULE</a></li>
+            <li><a href='schedule.jsp' class="floatLeft hoverPinkBack">SCHEDULE</a></li>
             <li><a href='board.html' class="floatLeft hoverPinkBack">BOARD</a></li>
             <li><a href='https://tomato-timer.com/' class="hoverPinkBack" target="_blank">🍅POMODORO🔗</a></li>
         </ul>
@@ -30,20 +44,6 @@
     </nav>
     <hr>
     <body>
-	    <%
-	    String userID = null;
-	    if (session.getAttribute("userID") != null) {
-	    	userID = (String) session.getAttribute("userID");
-	    	%>
-	    	<p><%=userID %> 님</p>
-	    	<%
-	    }
-	    else {
-	    	%>
-	    	<p>게스트 님</p>
-	    	<%
-	    }
-	    %>
         <article>
             <h1>MAIN</h1>
             <p>어서오세요.</p>

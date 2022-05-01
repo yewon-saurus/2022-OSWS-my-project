@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,6 +10,20 @@
     <header>
         <div class="logo"><a href='index.jsp'><img src="./img/pig.png"></a></div>
         <div class="to_login_join">
+       	    <%
+		    String userID = null;
+		    if (session.getAttribute("userID") != null) {
+		    	userID = (String) session.getAttribute("userID");
+		    	%>
+		    	<p><%=userID %> 님</p>
+		    	<%
+		    }
+		    else {
+		    	%>
+		    	<p>게스트</p>
+		    	<%
+		    }
+		    %>
             <a href='login.html'>LOGIN</a>&nbsp;&nbsp;&nbsp;
             <a href='join.html'>JOIN</a>
         </div>
