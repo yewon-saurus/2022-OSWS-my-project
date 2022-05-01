@@ -25,3 +25,9 @@ CREATE TABLE `myhomepage`.`board` (
  
 ALTER TABLE `myhomepage`.`board` 
 CHARACTER SET = utf8 , COLLATE = utf8_bin ;
+
+ALTER TABLE `myhomepage`.`board` 
+CHANGE COLUMN `BoardID` `boardID` INT NOT NULL ,
+CHANGE COLUMN `BoardTitle` `boardTitle` VARCHAR(45) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NULL DEFAULT NULL ,
+CHANGE COLUMN `BoardDate` `boardDate` VARCHAR(45) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NULL DEFAULT NULL ,
+CHANGE COLUMN `BoardContent` `boardContent` TEXT CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NULL DEFAULT NULL ;

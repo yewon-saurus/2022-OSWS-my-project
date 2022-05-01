@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.io.PrintWriter" %>
 <%@ page import="board.Board" %>
 <%@ page import="board.BoardDAO" %>
 <%!String userID = null; %>
@@ -9,7 +9,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="./css/style.css">
-        <title>기록해요</title>
+        <title>확인해요</title>
     </head>
     <header>
         <div class="logo"><a href='index.jsp'><img src="./img/pig.png"></a></div>
@@ -49,40 +49,40 @@
     <hr>
     <body>
         <div>
-            <h1>BOARD</h1>
-            <p>기록해요</p>
+            <h1>VIEW</h1>
+            <p>확인해요</p>
         </div>
+		<%
+		int boardID = Integer.parseInt(request.getParameter("boardID"));
+		BoardDAO boardDAO = new BoardDAO();
+		Board board = boardDAO.getBoard(boardID);
+		%>
         <article>
 			<table class="table">
 				<thead>
 					<tr>
-						<th>번호</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>작성일</th>
-						<th></th>
+						<th colspan="3">게시판 글보기</th>						
 					</tr>
 				</thead>
 				<tbody>
-					<%
-					BoardDAO boardDAO = new BoardDAO();
-					ArrayList<Board> list = boardDAO.getList();
-					for (int i = 0; i < list.size(); i++) {
-					%>
 					<tr>
-						<td><%= list.get(i).getBoardID() %></td>
-						<td><%= list.get(i).getBoardTitle() %></td>
-						<td><%= list.get(i).getUserID() %></td>
-						<td><%= list.get(i).getBoardDate().substring(0, 11) + list.get(i).getBoardDate().substring(11, 13) + "시 " + list.get(i).getBoardDate().substring(14, 16) + "분 " %></td>
-						<td> <a href="boardView.jsp?boardID=<%= list.get(i).getBoardID() %>">글보기</a></td>
+						<td style="width: 20%;">제목</td>
+						<td><%= board.getBoardTitle() %></td>
 					</tr>
-					<%		
-					}
-					%>
+					<tr>
+						<td>작성자</td>
+						<td><%= board.getUserID() %></td>
+					</tr>
+					<tr>
+						<td>작성일자</td>
+						<td><%= board.getBoardDate() %>
+					</tr>
+					<tr>
+						<td>내용</td>
+						<td colspan="2" style="width: 100%; text-align: left;"><%= board.getBoardContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">","&gt;").replaceAll("\n", "<br>") %>
+					</tr>
 				</tbody>
 			</table>
-			<br>
-			<a href="write.jsp">✍ 글쓰기</a>
         </article>
     </body>
     <hr>

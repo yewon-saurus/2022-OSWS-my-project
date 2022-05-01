@@ -75,7 +75,7 @@ h2 {
     font-size: 2.5em;
 }
 
-#signin input[placeholder] {
+#input input[placeholder] {
     border: 1px solid #ccc;
     border-radius: 3px;
     margin: -1px 10px;
@@ -83,7 +83,7 @@ h2 {
     padding: 10px;
 }
 
-#signin button[type=submit] {
+#input button[type=submit] {
     border-radius: 0px;
     width: 320px;
     border: none;
@@ -93,11 +93,11 @@ h2 {
     margin-bottom: 10px;
 }
 
-#signin label {
+#input label {
     text-align: left;
 }
 
-#signin {
+#input {
     margin: 0 auto;
     width: 30%;
 }
