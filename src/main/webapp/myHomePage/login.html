@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <title>환영해요</title>
+    </head>
+    <header>
+        <div class="logo">
+        	<a href='index.jsp'>
+	      		<svg id="logo_pig" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+				    <image
+				        xlink:href="./img/pig.png"
+				        x="0"
+				        y="0"
+				        width="100%"
+				        height="100%"/>
+					<image
+				        xlink:href="./img/computer_light.png"
+				        x="0"
+				        y="0"
+				        width="100%"
+				        height="100%"/>
+				</svg>
+        	</a>
+        </div>
+        <div class="to_login_join">
+        	<p>게스트</p>
+            <a href='login.html'>LOGIN</a>&nbsp;&nbsp;&nbsp;
+            <a href='join.html'>JOIN</a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href='schedule.jsp' class="floatLeft hoverPinkBack">SCHEDULE</a></li>
+            <li><a href='https://tomato-timer.com/' class="hoverPinkBack" target="_blank">🍅POMODORO🔗</a></li>
+        </ul>
+    </nav>
+    <nav>
+        <aside>
+            <div class="nav-btn">
+                <a href="#"><img src='./img/up.png' width='50'></a>
+            </div>
+        </aside>
+    </nav>
+    <hr>
+    <body>
+        <div>
+            <h1>LOGIN</h1>
+            <img src="./img/lock_nankinjou_heart.png" alt="하트 모양의 자물쇠 이미지" width="100">
+            <p>환영해요.</p>
+        </div>
+        <div>
+            <form id="input" action="login.jsp" method="post">
+                <div id="signin">
+                    <label>
+                        <p>아이디</p>
+                        <input id="id" name="userID" autofocus type=text placeholder="아이디" required><br>
+                    </label>
+                    <label>
+                        <p>비밀번호</p>
+                        <input id="pass" name="userPassword" type="password" placeholder="비밀번호" required><br>
+                    </label>
+                    <button class="btn-shape white-font" type="submit">로그인</button><br>
+                    <div class="algin-left" id="toJoin">
+                        <a href="join.html">회원가입</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
+    <hr>
+    <footer>
+        <div>
+            Copyright&nbsp;&copy;&nbsp;2022&nbsp;YewonKim
+        </div>
+    </footer>
+</html>
