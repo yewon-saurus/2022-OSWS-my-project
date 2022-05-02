@@ -55,11 +55,12 @@ public class CommentDAO {
 		}
 		return -1;
 	}
-	public ArrayList<Comment> getList() {
-		String SQL = "SELECT * FROM comment ORDER BY boardID DESC"; 
+	public ArrayList<Comment> getList(int boardID) {
+		String SQL = "SELECT * FROM comment WHERE boardID = ? AND commentAvailable = 1 ORDER BY boardID DESC";
 		ArrayList<Comment> list = new ArrayList<Comment>();
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, boardID);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Comment cmt = new Comment();

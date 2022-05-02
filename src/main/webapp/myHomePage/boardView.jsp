@@ -124,7 +124,7 @@
 					<tr>
 						<%
 						CommentDAO commentDAO = new CommentDAO();
-						ArrayList<Comment> list = commentDAO.getList();
+						ArrayList<Comment> list = commentDAO.getList(boardID);
 						for(int i=0; i<list.size(); i++){
 						%>
 						<table class="table">
