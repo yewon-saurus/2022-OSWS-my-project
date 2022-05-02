@@ -9,7 +9,24 @@
         <title>SCHDULE</title>
     </head>
     <header>
-        <div class="logo"><a href='index.jsp'><img src="./img/pig.png"></a></div>
+        <div class="logo">
+        	<a href='index.jsp'>
+	      		<svg id="logo_pig" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+				    <image
+				        xlink:href="./img/pig.png"
+				        x="0"
+				        y="0"
+				        width="100%"
+				        height="100%"/>
+					<image
+				        xlink:href="./img/computer_light.png"
+				        x="0"
+				        y="0"
+				        width="100%"
+				        height="100%"/>
+				</svg>
+        	</a>
+        </div>
         <div class="to_login_join">
         	    <%
 			    if (session.getAttribute("userID") != null) {

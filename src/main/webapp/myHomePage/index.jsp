@@ -9,7 +9,24 @@
         <title>어서오세요</title>
     </head>
     <header>
-        <div class="logo"><a href='index.jsp'><img src="./img/pig.png"></a></div>
+        <div class="logo">
+        	<a href='index.jsp'>
+	      		<svg id="logo_pig" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+				    <image
+				        xlink:href="./img/pig.png"
+				        x="0"
+				        y="0"
+				        width="100%"
+				        height="100%"/>
+					<image
+				        xlink:href="./img/computer_light.png"
+				        x="0"
+				        y="0"
+				        width="100%"
+				        height="100%"/>
+				</svg>
+        	</a>
+        </div>
         <div class="to_login_join">
         	    <%
 			    if (session.getAttribute("userID") != null) {
@@ -65,7 +82,38 @@
             <section>
                 <!-- 메인 배너 -->
                 <div class='whoIsYewon'> <!--소개-->
-                    <img src="./img/animal_chara_smartphone_buta.png" width="260" height="340">
+                <div>
+					<svg id="pig" style="width: 260px; height: 340;" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+					    <image
+					        xlink:href="./img/buta_tail.png"
+					        x="0"
+					        y="0"
+					        width="260px"
+					        height="340px"/>
+					    <image
+					        xlink:href="./img/pig_right_arm.png"
+					        x="0"
+					        y="-2px"
+					        width="260px"
+					        height="340px"/>
+					    <image
+					        xlink:href="./img/smartphone_pig1.png"
+					        x="0"
+					        y="0"
+					        width="260px"
+					        height="340px"/>
+					    <circle
+					    	cx="39%"
+					    	cy="32%"
+					    	r="5px"
+					    	fill="#000"/>
+					    <circle
+					    	cx="60%"
+					    	cy="32%"
+					    	r="5px"
+					    	fill="#000"/>
+					</svg>
+                </div>
                     <p>김 예원</p>
                     <p>Yewon Kim</p>
                     <p>소속: <a href="https://software.cbnu.ac.kr/" target="_blank">CBNU computer science 🔗</a></p>
