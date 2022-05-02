@@ -3,6 +3,9 @@
 <%@ page import="java.io.PrintWriter" %>
 <%@ page import="board.Board" %>
 <%@ page import="board.BoardDAO" %>
+<%@ page import="comment.Comment" %>
+<%@ page import="comment.CommentDAO" %>
+<%@ page import="java.util.ArrayList" %>
 <%!String userID = null; %>
 <!DOCTYPE html>
 <html>
@@ -74,7 +77,7 @@
 		BoardDAO boardDAO = new BoardDAO();
 		Board board = boardDAO.getBoard(boardID);
 		%>
-        <article>
+        <article> <!-- 게시글 열람 -->
 			<table class="table">
 				<thead>
 					<tr>
@@ -99,6 +102,43 @@
 						<td colspan="2" style="width: 100%; text-align: left;"><%= board.getBoardContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">","&gt;").replaceAll("\n", "<br>") %>
 					</tr>
 				</tbody>
+			</table>
+        </article>
+        <article> <!-- 댓글 작성 -->
+			<form method="post" encType = "multipart/form-data" action="commentAction.jsp?&boardID=<%=boardID%>">
+				<table class="table">
+					<tr>
+						<td><%= userID %></td>
+						<td><input type="text" placeholder="댓글을 남겨보세요!" name="commentText" style="width: 100%" required></td>
+						<td><button class="btn-shape white-font" style="width: 100%; border: none;" type="submit">작성</button></td>
+					</tr>
+				</table>
+			</form>
+        </article>
+		<article> <!-- 댓글 목록 -->
+			<table class="table">
+				<tbody>
+					<tr>
+						<td align="left" bgcolor="beige">댓글 목록</td>
+					</tr>
+					<tr>
+						<%
+						CommentDAO commentDAO = new CommentDAO();
+						ArrayList<Comment> list = commentDAO.getList();
+						for(int i=0; i<list.size(); i++){
+						%>
+						<table class="table">
+							<tbody>
+								<tr>						
+									<td align="left"><%= list.get(i).getUserID() %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= list.get(i).getCommentDate().substring(0,11) + list.get(i).getCommentDate().substring(11,13) + "시" + list.get(i).getCommentDate().substring(14,16) + "분" %></td>
+								</tr>
+								<tr>
+									<td colspan="5" align="left"><%= list.get(i).getCommentText() %></td>
+								<%} %>	
+								</tr>
+							</tbody>
+						</table>
+					</tr>
 			</table>
         </article>
     </body>

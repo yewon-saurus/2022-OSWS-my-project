@@ -48,4 +48,7 @@ COLLATE = utf8_bin;
 
 alter table comment add primary key (commentID);
 
+ALTER TABLE `myhomepage`.`comment` 
+CHANGE COLUMN `commentContent` `commentText` VARCHAR(45) NULL DEFAULT NULL ;
+
 SELECT * FROM myhomepage.board;
