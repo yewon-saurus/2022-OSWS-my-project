@@ -24,8 +24,6 @@
 			boardID = Integer.parseInt(request.getParameter("boardID"));
 		}
 		
-		String encType = "utf-8";
-		
 	 	if(userID == null){
 	 		PrintWriter script = response.getWriter();
 	 		script.println("<script>");

@@ -105,7 +105,7 @@
 			</table>
         </article>
         <article> <!-- 댓글 작성 -->
-			<form method="post" encType = "multipart/form-data" action="commentAction.jsp?&boardID=<%=boardID%>">
+			<form method="post" action="commentAction.jsp?&boardID=<%=boardID%>">
 				<table class="table">
 					<tr>
 						<td><%= userID %></td>
