@@ -8,6 +8,7 @@
     <header>
         <div class="logo"><a href='index.jsp'><img src="./img/pig.png"></a></div>
         <div class="to_login_join">
+        	<p>게스트</p>
             <a href='login.html'>LOGIN</a>&nbsp;&nbsp;&nbsp;
             <a href='join.html'>JOIN</a>
         </div>
@@ -37,7 +38,7 @@
             <form id="input" action="join.jsp" method="POST">
             	<label>
             		<p>아이디</p>
-            		<input id="ID" name="userID" type="text" placeholder="아이디" autofocus>
+            		<input id="ID" name="userID" type="text" placeholder="아이디" autofocus required>
             	</label>
                 <label>
                     <p>이메일</p>
@@ -45,7 +46,7 @@
                 </label>
                 <label>
                     <p>비밀번호</p>
-                    <input id="password" name="userPassword" type="password" placeholder="비밀번호"><br>
+                    <input id="password" name="userPassword" type="password" placeholder="비밀번호" required><br>
                 </label>
                 <div>
                     <input id="agree_terms" name="agree_terms" type="hidden">
