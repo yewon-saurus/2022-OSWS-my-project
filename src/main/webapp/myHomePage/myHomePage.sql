@@ -9,8 +9,9 @@ CREATE TABLE `myhomepage`.`user` (
 ALTER TABLE `myhomepage`.`user` 
 CHARACTER SET = utf8 , COLLATE = utf8_bin ;
 
-
 SELECT * FROM myhomepage.user;
+
+
 
 CREATE TABLE `myhomepage`.`board` (
   `BoardID` INT NOT NULL,
@@ -31,3 +32,20 @@ CHANGE COLUMN `BoardID` `boardID` INT NOT NULL ,
 CHANGE COLUMN `BoardTitle` `boardTitle` VARCHAR(45) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NULL DEFAULT NULL ,
 CHANGE COLUMN `BoardDate` `boardDate` VARCHAR(45) CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NULL DEFAULT NULL ,
 CHANGE COLUMN `BoardContent` `boardContent` TEXT CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_0900_ai_ci' NULL DEFAULT NULL ;
+
+
+
+CREATE TABLE `myhomepage`.`comment` (
+  `boardID` INT NULL,
+  `commentID` INT NULL,
+  `userID` VARCHAR(45) NULL,
+  `commentDate` VARCHAR(45) NULL,
+  `commentContent` VARCHAR(45) NULL,
+  `commentAvailable` INT NULL)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8
+COLLATE = utf8_bin;
+
+alter table comment add primary key (commentID);
+
+SELECT * FROM myhomepage.board;

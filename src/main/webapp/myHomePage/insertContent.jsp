@@ -24,7 +24,7 @@
 			PrintWriter script = response.getWriter();
 			script.println("<script>");
 			script.println("alert('1')");
-			script.println("location.href = 'login2.jsp'");
+			script.println("location.href = 'login.jsp'");
 			script.println("history.back()");
 			script.println("</script>");
 		} else {
